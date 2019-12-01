@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import ProductsController from './app/controllers/ProductsController';
+import ProductsController from './app/controllers/productsController';
 
 class Routes {
   constructor() {

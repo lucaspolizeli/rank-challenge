@@ -2,7 +2,7 @@ class ProductsController {
   async store(req, res) {
     const { name, email, password } = req.body;
 
-    const user = {
+    this.user = {
       name,
       email,
       password
@@ -10,7 +10,7 @@ class ProductsController {
 
     // enviar email
 
-    return res.json(user);
+    return res.json(this.user);
   }
 }
 
