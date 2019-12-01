@@ -1,4 +1,4 @@
-export default {
+class ProductsController {
   async store(req, res) {
     const { name, email, password } = req.body;
 
@@ -12,4 +12,6 @@ export default {
 
     return res.json(user);
   }
-};
+}
+
+export default new ProductsController();
