@@ -16,8 +16,8 @@ services:
     ports: 
       - "3000:3000"
   mongo:
-    container_name: MONGO_RANK
     image: mongo
+    container_name: MONGO_RANK
     volumes:
       - ./data/db:/data/db
     ports: 
