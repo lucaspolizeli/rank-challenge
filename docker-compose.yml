@@ -1,24 +1,24 @@
 version: "3"
 
 services: 
-  server:
-    build: .
-    container_name: NODEJS_RANK
-    command: npm start
-    volumes: 
-      - .:/usr/server
-    environment: 
-      NODE_ENV: development
+  node-server:
     depends_on: 
-      - mongo
+      - mongodb
+    container_name: node-server
+    build: 
+      context: .
+    volumes: 
+      - .:/usr/src/server
+    command: npm start
     links: 
-      - mongo
+      - mongodb:mongodb
     ports: 
-      - "3000:3000"
-  mongo:
+      - 3000:3000
+
+  mongodb:
+    container_name: mongo-rank
     image: mongo
-    container_name: MONGO_RANK
     volumes:
-      - ./data/db:/data/db
+      - ./data/database:/data/db
     ports: 
-      - "27017:27017"
+      - 27017:27017

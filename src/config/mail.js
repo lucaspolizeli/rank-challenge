@@ -1,20 +1,8 @@
-class Mail {
-  constructor() {
-    this.config();
+export default {
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
+  auth: {
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASSWORD
   }
-
-  config() {
-    // get user config from database
-
-    return {
-      host: 'smtp.mailtrap.io',
-      port: 2525,
-      auth: {
-        user: '1b9d1ed88f6f8a',
-        pass: '5f11189ce09ea4'
-      }
-    };
-  }
-}
-
-export default new Mail().config;
+};

@@ -1,6 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import routes from './routes';
+import bodyParser from 'body-parser';
 
 class App {
   constructor() {
@@ -11,7 +12,12 @@ class App {
   }
 
   middlewares() {
-    this.server.use(express.json());
+    this.server.use(
+      bodyParser.urlencoded({
+        extended: true
+      })
+    );
+    this.server.use(bodyParser.json());
   }
 
   routes() {

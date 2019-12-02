@@ -1,4 +1,10 @@
 import nodemailer from 'nodemailer';
 import mailConfig from '../../config/mail';
 
-export default nodemailer.createTransport(mailConfig);
+class Mail {
+  constructor() {
+    nodemailer.createTransport(mailConfig);
+  }
+}
+
+export default new Mail();
