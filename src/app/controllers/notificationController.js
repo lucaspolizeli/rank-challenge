@@ -34,18 +34,18 @@ class NotificationController {
     const { id } = req.params;
     const { email, frequency, keyword } = req.body;
 
-    const notification = await Notification.findById(id);
+    let notification = await Notification.findById(id);
 
     if (!notification) {
       res.status(400).json({ error: 'notification not found' });
     }
 
-    await Notification.findByIdAndUpdate(id, {
-      email,
-      frequency,
-      keyword
-    });
-    return res.status(200);
+    notification.email = email;
+    notification.frequency = frequency;
+    notification.keyword = keyword;
+
+    notification = await notification.save();
+    return res.status(200).json({ notification });
   }
 
   async deleteNotification(req, res) {
