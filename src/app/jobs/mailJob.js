@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class MailJob {
   async getProducts(keyword) {
-    const ebayUrl = [
+    const url = [
       process.env.EBAY_URL,
       '?OPERATION-NAME=findItemsByKeywords',
       '&SERVICE-VERSION=1.0.0',
@@ -15,7 +15,7 @@ class MailJob {
       '&RESPONSE-DATA-FORMAT=JSON'
     ];
 
-    const response = await axios.get(ebayUrl.join(''));
+    const response = await axios.get(url.join(''));
     return response.data.findItemsByKeywordsResponse[0].searchResult[0].item || [];
   }
 
