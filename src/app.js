@@ -27,7 +27,7 @@ class App {
   }
 
   jobs() {
-    cron.schedule('*/2 * * * *', () => {
+    cron.schedule('*/1 * * * *', () => {
       const mailJob = new MailJob();
       mailJob.sendEmail({ frequency: 2 });
     });
